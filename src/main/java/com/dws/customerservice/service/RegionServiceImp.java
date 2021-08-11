@@ -1,6 +1,7 @@
 package com.dws.customerservice.service;
 
 import com.dws.customerservice.dto.Region;
+import com.dws.customerservice.dto.RespuestaApi;
 import com.dws.customerservice.repository.RegionRepository;
 import org.apache.logging.log4j.message.Message;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,21 +22,21 @@ public class RegionServiceImp implements RegionService {
 
     @Override
     public Region getRegion(int id) {
-        return null;
+        return regionRepository.getRegion(id);
     }
 
     @Override
-    public Message createRegion(Region region) {
-        return null;
+    public RespuestaApi createRegion(Region region) {
+        return regionRepository.createRegion(region);
     }
 
     @Override
-    public Message updateRegion(Region region, int id) {
-        return null;
+    public RespuestaApi updateRegion(Region region, int id) {
+        return regionRepository.updateRegion(region, id);
     }
 
     @Override
-    public Message deleteRegion(int id) {
-        return null;
+    public RespuestaApi deleteRegion(int id) {
+        return regionRepository.deleteRegion(id);
     }
 }

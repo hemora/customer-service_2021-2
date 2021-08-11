@@ -49,4 +49,12 @@ public class RegionRepository {
         return msg;
     }
 
+    public RespuestaApi deleteRegion(int id) {
+        jdbcTemplate.update(
+                String.format("DELETE FROM region WHERE id = %id;", id)
+        );
+        RespuestaApi msg = new RespuestaApi();
+        msg.setMessage("La región ha sido eliminada");
+        return msg;
+    }
 }

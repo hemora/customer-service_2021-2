@@ -4,6 +4,7 @@ import com.dws.customerservice.dto.Region;
 import com.dws.customerservice.dto.RespuestaApi;
 import com.dws.customerservice.repository.RegionRepository;
 import org.apache.logging.log4j.message.Message;
+import com.dws.customerservice.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

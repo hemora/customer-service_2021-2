@@ -21,38 +21,34 @@ public class RegionRepository {
     }
 
     public Region getRegion(int id) {
+        String query = "SELECT * FROM region WHERE id = " + id + " ;";
         Region region =
                 jdbcTemplate.queryForObject(
-                        String.format("SELECT * FROM region WHERE id = %id ;", id)
+                        query
                         , new BeanPropertyRowMapper<>(Region.class)
                 );
         return region;
     }
 
     public RespuestaApi createRegion(Region region) {
-        jdbcTemplate.update(
-                String.format("INSERT INTO region (region) VALUES ('%region')", region.getRegion())
-        );
+        String query = "INSERT INTO region (region) VALUES ('" + region.getRegion() + "');";
+        jdbcTemplate.update(query);
         RespuestaApi msg = new RespuestaApi();
         msg.setMessage("La región ha sido registrada");
         return msg;
     }
 
     public RespuestaApi updateRegion(Region region, int id) {
-        jdbcTemplate.update(
-                String.format("UPDATE region SET region = %region WHERE id = %id;"
-                                , region.getRegion()
-                                , id)
-        );
+        String query = "UPDATE region SET region = '"+ region.getRegion() +"' WHERE id = "+ id +";";
+        jdbcTemplate.update(query);
         RespuestaApi msg = new RespuestaApi();
         msg.setMessage("La región ha sido actualizada");
         return msg;
     }
 
     public RespuestaApi deleteRegion(int id) {
-        jdbcTemplate.update(
-                String.format("DELETE FROM region WHERE id = %id;", id)
-        );
+        String query = "DELETE FROM region WHERE id = " + id + ";";
+        jdbcTemplate.update(query);
         RespuestaApi msg = new RespuestaApi();
         msg.setMessage("La región ha sido eliminada");
         return msg;

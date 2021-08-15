@@ -85,7 +85,7 @@ public class CustomerRepository {
                         + "'" + customer.getApellidos() +  "',"
                         + "'" + customer.getRfc() + "',"
                         + "'" + customer.getCorreo() + "',"
-                        + "'" + customer.getRegion().getId() + "',"
+                        + "'" + customer.getRegion().getId() + "'"
                         + ");" ;
         jdbcTemplate.update(query);
         RespuestaApi msg = new RespuestaApi();
@@ -95,7 +95,7 @@ public class CustomerRepository {
 
     public RespuestaApi updateCustomer(Customer customer, int id) {
         String query =
-                "UPDATE CUSTOMER SET"
+                "UPDATE customer SET "
                         + "nombre = '" + customer.getNombre() + "',"
                         + "apellidos = '" + customer.getApellidos() + "',"
                         + "rfc = '" + customer.getRfc() + "',"

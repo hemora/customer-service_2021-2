@@ -78,6 +78,21 @@ public class CustomerRepository {
         return customer;
     }
 
+    public RespuestaApi createCustomer(Customer customer) {
+        String query =
+                "INSERT INTO customer (nombre, apellidos, rfc, correo, id_region) VALUES ("
+                        + "'" + customer.getNombre()  + "',"
+                        + "'" + customer.getApellidos() +  "',"
+                        + "'" + customer.getRfc() + "',"
+                        + "'" + customer.getCorreo() + "',"
+                        + "'" + customer.getRegion().getId() + "',"
+                        + ");" ;
+        jdbcTemplate.update(query);
+        RespuestaApi msg = new RespuestaApi();
+        msg.setMessage("El cliente ha sido registrado.");
+        return msg;
+    }
+
     public RespuestaApi updateCustomer(Customer customer, int id) {
         String query =
                 "UPDATE CUSTOMER SET"
@@ -100,4 +115,6 @@ public class CustomerRepository {
         msg.setMessage("El cliente ha sido eliminado");
         return msg;
     }
+
+
 }
